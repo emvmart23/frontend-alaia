@@ -48,7 +48,7 @@ api.interceptors.response.use(
       store.dispatch(logout());
       return Promise.reject(error);
     }
-
+    console.log("error.response.status", error.response.status)
     const isUnauthorized = error.response.status === 401;
 
     if (!isUnauthorized || originalRequest._retry) {

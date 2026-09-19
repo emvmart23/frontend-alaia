@@ -1,12 +1,13 @@
 import { useState, type FocusEvent } from "react";
 import styles from "./UserDropdown.module.css";
 import { UserRound } from "lucide-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import api from "../../../services/api";
 import { useAppDispatch } from "../../../store/store";
 import { logout } from "../../../store/slices/auth";
 import { toast } from "sonner";
 import Divider from "../Divider";
+import Button from "../Button";
 
 interface DropdownItem {
   label: string;
@@ -24,8 +25,10 @@ export default function UserDropdown({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState<DropdownItem | null>(null);
-  console.log(selectedItem)
+  const isTokenExist = !!token;
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   const handleSelect = (item: DropdownItem) => {
@@ -50,41 +53,48 @@ export default function UserDropdown({
       setIsOpen(false);
     } catch (error) {
       console.error("Error al cerrar sesión:", error);
-      toast.error('Error al cerrar sesión')
+      toast.error("Error al cerrar sesión");
       setIsOpen(false);
     }
+  };
+
+  const handleAuthRedirect = () => {
+    setIsOpen(false);
+    navigate("/auth/sign-in");
   };
 
   return (
     <div className={styles.container} onBlur={handleBlur} tabIndex={0}>
       <div className={styles.buttonWrapper}>
-        {!token ? (
-          <UserRound className={styles.icon} onClick={toggleDropdown} />
-        ) : (
-          <Link to="/auth/sign-in">
-            <UserRound className={styles.icon} />
-          </Link>
-        )}
+        <UserRound className={styles.icon} onClick={toggleDropdown} />
       </div>
 
       {isOpen && (
         <div className={styles.menu}>
-          <div className={styles.menuGroup}>
-            {items.map((item, index) => (
-              <Link
-                to={item.path}
-                key={index}
-                onClick={() => handleSelect(item)}
-                className={styles.itemButton}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
-          <Divider />
-          <button onClick={handleLogout} className={styles.itemButton}>
-            Cerrar sesion
-          </button>
+          {isTokenExist ? (
+            <>
+              <div className={styles.menuGroup}>
+                {items.map((item, index) => (
+                  <Link
+                    to={item.path}
+                    key={index}
+                    onClick={() => handleSelect(item)}
+                    className={styles.itemButton}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+              <Divider />
+              <button onClick={handleLogout} className={styles.itemButton}>
+                Cerrar sesion
+              </button>
+            </>
+          ) : (
+              <Button onClick={handleAuthRedirect} className={styles.authButton}>
+                Iniciar sesión | Registrarse
+              </Button>
+          )}
         </div>
       )}
     </div>

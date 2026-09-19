@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react";
 import { Input } from "../../../../../../components/ui";
-import CustomDatePicker from "../../../../../../components/ui/CustomDateRangePicker";
+import CustomDatePicker from "../../../../../../components/ui/CustomDatePicker";
 import styles from "./AccountForm.module.css";
 
 interface Props {

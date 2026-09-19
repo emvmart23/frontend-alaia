@@ -2,7 +2,7 @@
   width: var(--width, 100%);
   border-radius: 6px;
   border: var(--input-border,1px solid var(--muted) );
-  padding: var(--input-padding, 0.8rem 1rem);
+  padding: var(--input-padding, 0.6rem 1rem);
   background: var(--input-bg, white);
   font-size: var(--input-fs, var(--text-base));
 }

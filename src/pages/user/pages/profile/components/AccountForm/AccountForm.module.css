@@ -28,7 +28,7 @@
   width: 100%;
   padding: 0.75rem;
   font-size: var(--text-sm);
-  border-radius: var(--radius-xl);
+  border-radius: var(--radius-md);
   background: #f9fafb;
   border: 1px solid transparent;
   color: var(--gray);

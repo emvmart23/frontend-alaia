@@ -1,6 +1,6 @@
 import { Calendar } from "lucide-react";
 import DatePicker from "react-datepicker";
-import styles from "./CustomDateRangePicker.module.css";
+import styles from "./CustomDatePicker.module.css";
 import "react-datepicker/dist/react-datepicker.css";
 import clsx from "clsx";
 

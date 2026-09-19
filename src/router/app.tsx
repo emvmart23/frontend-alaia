@@ -6,7 +6,7 @@ import {
   Contact, 
   About, 
 } from "../pages";
-import Profile from "../pages/user/pages/profile/page";
+import { Orders, Profile } from "../pages/index";
 
 const appRouter = [
   {
@@ -38,7 +38,7 @@ const appRouter = [
               },
               {
                 path: "orders",
-                element: <></>,
+                element: <Orders/>,
               },
               {
                 path: "addresses",

@@ -1,0 +1,30 @@
+.containerSelect {
+    position: relative;
+    min-width: 240px;
+}
+
+.select {
+    width: 100%;
+    padding: 0.6rem 0.4rem;
+    border-radius: 6px;
+    appearance: base-select;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.select:enabled {
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+.select::picker(select) {
+    appearance: base-select;
+    
+}
+
+.icon {
+    top: 0.5rem;
+    right: 0.4rem;
+    position: absolute;
+    pointer-events: none;
+}

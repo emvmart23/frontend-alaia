@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router";
 import { Button, Input, InputPassword } from "../../../../components/ui";
 import styles from "../../Auth.module.css";
-import { ArrowLeftIcon } from "lucide-react";
+import { ArrowLeftIcon, LoaderCircle } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SignInSchema } from "../../../../lib/validators/auth";
@@ -35,7 +35,6 @@ export default function SignIn() {
 
     try {
       const response = await api.post("/auth/sign-in", data);
-
       const { accessToken } = response.data;
 
       if (!accessToken) {
@@ -93,7 +92,7 @@ export default function SignIn() {
         </div>
 
         <Button type="submit" className={styles.submitButton}>
-          Iniciar sesión
+          {isPending ? <LoaderCircle /> : "Iniciar sesión"}
         </Button>
 
         <p>

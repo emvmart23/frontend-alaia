@@ -1,0 +1,12 @@
+.section {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.containerFilters {
+    max-width: 35%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+    padding: 1rem 0 1rem 0;
+}

@@ -4,7 +4,7 @@ import authImage from "../../../assets/images/common/auth.jpg"
 
 export default function AuthLayout() {
   return (
-    <div className={styles.container}>
+    <div className={styles.authContainer}>
       <div className={styles.imageSection}>
         <img
           src={authImage}

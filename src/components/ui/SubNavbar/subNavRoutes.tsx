@@ -1,22 +1,24 @@
+const ACCOUNT_BASE_PATH = "/account";
+
 export const subNavRoutes = [
   {
     id: 1,
-    path: "/account",
+    path: ACCOUNT_BASE_PATH,
     label: "Mi cuenta",
   },
   {
     id: 2,
-    path: "/orders",
+    path: `${ACCOUNT_BASE_PATH}/orders`,
     label: "Mis pedidos",
   },
   {
     id: 3,
-    path: "/addresses",
+    path: `${ACCOUNT_BASE_PATH}/addresses`,
     label: "Direcciones de envío",
   },
   {
     id: 4,
-    path: "/payment-methods",
+    path: `${ACCOUNT_BASE_PATH}/payment-methods`,
     label: "Métodos de pago",
   },
 ];
