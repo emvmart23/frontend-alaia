@@ -16,9 +16,12 @@
 .announcemmentBar {
   background: var(--accent);
   width: 100%;
-  display: grid;
-  justify-content: center;
   padding: var(--space-2);
+}
+
+.announcemmentTitle {
+  text-align: center;
+  font-size: var(--text-xs);
 }
 
 .nav {
@@ -29,10 +32,21 @@
   justify-content: space-around;
 }
 
+.menu {
+  color: var(--primary);
+  cursor: pointer;
+  transition: transform 0.3s ease 0.3s;
+}
+
+.openMenu {
+  transform: rotate(60deg);
+}
+
 .links {
   display: flex;
   justify-content: space-between;
   gap: 2rem;
+  display: none;
 }
 
 .link {
@@ -61,4 +75,10 @@
 .button {
   font-size: var(--text-sm);
   padding: 0;
+}
+
+@media (min-width: 768px) {
+  .announcemmentTitle {
+    font-size: var(--text-sm) ;
+  }
 }

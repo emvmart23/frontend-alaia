@@ -1,6 +1,5 @@
 import type { ChangeEvent } from "react";
-import { Input } from "../../../../../../components/ui";
-import CustomDatePicker from "../../../../../../components/ui/CustomDatePicker";
+import { Button, CustomDatePicker, Input } from "../../../../../../components/ui";
 import styles from "./AccountForm.module.css";
 
 interface Props {
@@ -8,10 +7,12 @@ interface Props {
   formData: User;
   setFormData: (value: User | ((prev: User) => User)) => void;
   handleChange: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  setEdit: (value: boolean) => void;
 }
 
 export default function AccountForm({
   edit,
+  setEdit,
   formData,
   setFormData,
   handleChange,
@@ -114,6 +115,14 @@ export default function AccountForm({
           onChange={handleChange}
           className={styles.input}
         />
+      </div>
+      <div className={styles.buttonsContainer}>
+        <Button className={styles.btnEdit} onClick={() => setEdit(!edit)}>
+          {edit ? "Guardar" : "Edit"}
+        </Button>
+        <Button className={styles.btnEdit} onClick={() => setEdit(!edit)}>
+          Cancelar
+        </Button>
       </div>
     </form>
   );

@@ -1,6 +1,6 @@
 import { Plus } from "lucide-react";
 import styles from "./AccountHeader.module.css";
-import { Button } from "../../../../../../components/ui";
+import { Button } from "@/components/ui";
 import type { ChangeEvent } from "react";
 
 interface Props {

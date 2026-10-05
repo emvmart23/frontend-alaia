@@ -28,7 +28,6 @@ export default function Carrousel({ images, children }: CarrouselProps) {
   return (
     <section className={styles.imageContainer}>
       {children && <div className={styles.container}>{children}</div>}
-      {/* quitar este estilo inline */}
       <div
         className={styles.sliders}
         style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}

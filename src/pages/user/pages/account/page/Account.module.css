@@ -12,6 +12,11 @@
   margin-bottom: var(--space-4);
 }
 
+.accountContent {
+ 
+  gap: 1.5rem;
+}
+
 .btnEdit {
   padding: 0.5rem 1.25rem;
   font-size: var(--text-sm);

@@ -2,23 +2,21 @@
   width: 100%;
   height: auto;
   background: var(--background);
-  box-sizing: border-box;
-  display: flex;
   padding: 2rem 0;
 }
 
 .wrapper {
   margin: 0 auto;
   width: 100%;
-  max-width: 1200px;
   padding: 0 1rem;
-  box-sizing: border-box;
 }
 
 .footerTop {
   display: flex;
-  align-items: end;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+  gap: var(--space-8);
 }
 
 .logo {
@@ -28,14 +26,16 @@
 
 .container {
   display: flex;
-  align-items: center;
-  gap: 6rem;
+  flex-direction: column;
+  align-items: column;
+  gap: 3rem;
 }
 
 .footerNav {
   display: flex;
   flex-direction: column;
   align-items: start;
+  gap: var(--space-2);
 }
 
 .footerNav ul {
@@ -65,17 +65,17 @@
 }
 
 .divider {
-  width: 0.1rem;
-  height: 10rem;
+  width: 15rem;
+  height: 0.01rem;
   background: var(--secondary);
 }
 
 .footerBottom {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  white-space: nowrap;
   margin-top: 2rem;
+  gap: var(--space-4);
 }
 
 .footerBottom nav {
@@ -87,4 +87,26 @@
   align-items: center;
   gap: 2rem;
   list-style: none;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-12);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footerTop {
+    flex-direction: row;
+    justify-content: center;
+    gap: 10rem;
+  }
+
+  .divider {
+    width: 0.01rem;
+    height: 10rem;
+    background: var(--secondary);
+  }
 }

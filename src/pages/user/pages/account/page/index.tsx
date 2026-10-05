@@ -1,10 +1,10 @@
 import { useState, type ChangeEvent } from "react";
-import styles from "./Account.module.css";
-import { Button, Divider } from "../../../../../components/ui";
-import "react-datepicker/dist/react-datepicker.css";
 import { AccountForm, AccountHeader } from "../components";
+import "react-datepicker/dist/react-datepicker.css";
+import styles from "./Account.module.css";
+import { Divider } from "@/components/ui";
 
-export default function Profile() {
+export default function Account() {
   const [edit, setEdit] = useState(false);
   const [formData, setFormData] = useState<User>({
     firstName: "Max Cristofer",
@@ -33,30 +33,25 @@ export default function Profile() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.title}>Perfil</h2>
+      <h2 className={styles.title}>Mi perfil</h2>
 
       <Divider />
 
-      <AccountHeader
-        formData={formData}
-        handleImageChange={handleImageChange}
-      />
+      <div className={styles.accountContent}>
+        <AccountHeader
+          formData={formData}
+          handleImageChange={handleImageChange}
+        />
 
-      <AccountForm
-        edit={edit}
-        formData={formData}
-        setFormData={setFormData}
-        handleChange={handleChange}
-      />
-
-      <div className={styles.buttonsContainer}>
-        <Button className={styles.btnEdit} onClick={() => setEdit(!edit)}>
-          {edit ? "Guardar" : "Edit"}
-        </Button>
-        <Button className={styles.btnEdit} onClick={() => setEdit(!edit)}>
-          Cancelar
-        </Button>
+        <AccountForm
+          edit={edit}
+          formData={formData}
+          setFormData={setFormData}
+          handleChange={handleChange}
+          setEdit={setEdit}
+        />
       </div>
+
     </div>
   );
 }
